@@ -4,25 +4,28 @@ import sys
 from datetime import datetime, timedelta
 
 # Função quick sort
-def quickSortPartition(arr, low, high):
-    pivot = arr[high]
+def partition(array, low, high):
+    pivot = array[high]
+ 
     i = low - 1
-
+ 
     for j in range(low, high):
-        if arr[j] <= pivot:
+        if array[j] <= pivot:
             i = i + 1
-            arr[i], arr[j] = arr[j], arr[i]
+            (array[i], array[j]) = (array[j], array[i])
+ 
+    (array[i + 1], array[high]) = (array[high], array[i + 1])
 
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
     return i + 1
-
-
-def quickSort(arr, low, high):
+ 
+ 
+def quickSort(array, low, high):
     if low < high:
-        pi = quickSortPartition(arr, low, high)
-
-        quickSort(arr, low, pi - 1)
-        quickSort(arr, pi + 1, high)
+        pi = partition(array, low, high)
+ 
+        quickSort(array, low, pi - 1)
+ 
+        quickSort(array, pi + 1, high)
 
 
 # Função bubble sort
