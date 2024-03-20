@@ -43,10 +43,6 @@ def generateList(listSize):
 
 # Main
 def main():
-    # if len(sys.argv) < 2:
-    #     print("Uso: python Atividade 01 - Python.py <tamanho da lista>")
-    #     return
-
     if len(sys.argv) > 1:
         listSize = int(sys.argv[1])
     else:
