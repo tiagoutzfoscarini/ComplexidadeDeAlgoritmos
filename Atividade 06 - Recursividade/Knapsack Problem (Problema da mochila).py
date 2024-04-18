@@ -18,6 +18,12 @@ def ordenarListaPorValor(lista):
     return lista
 
 
+# Ordenar lista de items por peso
+def ordenarListaPorPeso(lista):
+    lista.sort(key=lambda x: x['peso'])
+    return lista
+
+
 # Imprimir lista de items como tabela
 def imprimirLista(lista):
     # Print list as table
@@ -54,8 +60,8 @@ if __name__ == '__main__':
         n = int(sys.argv[1])
         W = int(sys.argv[2])
     else:
-        n = 5
-        W = 50
+        n = 10
+        W = 100
         print("\nValores padrão: n = 5, W = 50")
         print("Sem argumentos, o programa utilizará os valores padrão.")
         print("Utilize 'python3 Knapsack Problem.py <n> <W>' para definir a quantidade de itens e a capacidade da mochila.")
@@ -80,5 +86,6 @@ if __name__ == '__main__':
 
     print("\nO valor máximo que pode ser colocado na mochila é:", resultado)
 
+    bag = ordenarListaPorPeso(bag)
     print("\nItens na mochila:")
     imprimirLista(bag)
