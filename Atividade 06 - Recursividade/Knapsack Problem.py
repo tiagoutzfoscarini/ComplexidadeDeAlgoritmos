@@ -83,6 +83,11 @@ if __name__ == '__main__':
 
     bag = ordenarListaPorPeso(bag)
 
+    # Somar valor de todos os itens na lista inicial
+    valor_maximo = 0
+    for item in lista:
+        valor_maximo += item['valor']
+
     # Somar peso da mochila
     # valor_total = 0
     peso_total = 0
@@ -90,9 +95,18 @@ if __name__ == '__main__':
         # valor_total += item['valor']
         peso_total += item['peso']
 
-    # Imprimir em tela  os resultados
+
+    # Imprimir em tela a descrição do problema
+    print("\LIMITES MÁXIMOS")
+    print("Capacidade da mochila:", W)
+    print("Quantidade de itens:", n)
+    print("Valor máximo possível:", valor_maximo)
+
     print("\nLista de itens:")
     imprimirLista(lista)
+
+    # Imprimir em tela  os resultados
+    print("\nRESULTADOS")
 
     print("\nO valor máximo que pode ser colocado na mochila é:", resultado)
     # print("\nValor total na mochila:", resultado)
