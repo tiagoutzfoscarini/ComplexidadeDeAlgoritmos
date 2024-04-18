@@ -62,13 +62,15 @@ if __name__ == '__main__':
     else:
         n = 10
         W = 100
-        print("\nValores padrão: n = 5, W = 50")
-        print("Sem argumentos, o programa utilizará os valores padrão.")
-        print("Utilize 'python3 Knapsack Problem.py <n> <W>' para definir a quantidade de itens e a capacidade da mochila.")
+        
+        print("\nValores padrão: n = 5, W = 50" \
+            "\nSem argumentos, o programa utilizará os valores padrão." \
+            "\nUtilize 'python3 Knapsack Problem.py <n> <W>' para definir a quantidade de itens e a capacidade da mochila."
+        )
 
     # Gerar lista de items com valores e pesos aleatórios e ordenar por valor
     lista = gerarLista(n)
-    lista = ordenarListaPorValor(lista)
+    # lista = ordenarListaPorValor(lista)
     
     bag = []
 
@@ -97,21 +99,21 @@ if __name__ == '__main__':
 
 
     # Imprimir em tela a descrição do problema
-    print("\LIMITES MÁXIMOS")
-    print("Capacidade da mochila:", W)
-    print("Quantidade de itens:", n)
-    print("Valor máximo possível:", valor_maximo)
-
-    print("\nLista de itens:")
+    print("\nLista de itens disponíveis:")
     imprimirLista(lista)
 
-    # Imprimir em tela  os resultados
-    print("\nRESULTADOS")
+    print("\nLIMITES MÁXIMOS" \
+        "\nCapacidade da mochila:", W, \
+        "\nQuantidade de itens:", n, \
+        "\nValor máximo possível:", valor_maximo
+    )
 
-    print("\nO valor máximo que pode ser colocado na mochila é:", resultado)
-    # print("\nValor total na mochila:", resultado)
-    print("Peso total na mochila:", peso_total)
-    print("Total de itens na mochila:", len(bag))
+    # Imprimir em tela  os resultados
+    print("\nRESULTADOS" \
+        "\nO valor máximo que pode ser colocado na mochila é:", resultado, \
+        "\nPeso total na mochila:", peso_total, \
+        "\nTotal de itens na mochila:", len(bag)
+    )
 
     print("\nItens na mochila:")
     imprimirLista(bag)
