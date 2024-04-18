@@ -12,15 +12,15 @@ def gerarLista(n):
     return lista
 
 
-# Ordenar lista de items por valor
+# Ordenar lista de items por valor de forma decrescente
 def ordenarListaPorValor(lista):
     lista.sort(key=lambda x: x['valor'], reverse=True)
     return lista
 
 
-# Ordenar lista de items por peso
+# Ordenar lista de items por peso de forma decrescente
 def ordenarListaPorPeso(lista):
-    lista.sort(key=lambda x: x['peso'])
+    lista.sort(key=lambda x: x['peso'], reverse=True)
     return lista
 
 
@@ -69,6 +69,8 @@ if __name__ == '__main__':
     # Gerar lista de items com valores e pesos aleatórios e ordenar por valor
     lista = gerarLista(n)
     lista = ordenarListaPorValor(lista)
+    
+    bag = []
 
     # # Teste de acordo com valores do original (deve resultar em 220)
     # lista = [{'id': 1, 'valor': 60, 'peso': 10},
@@ -76,16 +78,26 @@ if __name__ == '__main__':
     #         {'id': 3, 'valor': 120, 'peso': 30}]    
     # n = len(lista)
     # W = 50
-    
-    print("\nLista de itens:")
-    imprimirLista(lista)
-
-    bag = []
 
     resultado, bag = knapSack(W, lista, n, bag)
 
-    print("\nO valor máximo que pode ser colocado na mochila é:", resultado)
-
     bag = ordenarListaPorPeso(bag)
+
+    # Somar peso da mochila
+    # valor_total = 0
+    peso_total = 0
+    for item in bag:
+        # valor_total += item['valor']
+        peso_total += item['peso']
+
+    # Imprimir em tela  os resultados
+    print("\nLista de itens:")
+    imprimirLista(lista)
+
+    print("\nO valor máximo que pode ser colocado na mochila é:", resultado)
+    # print("\nValor total na mochila:", resultado)
+    print("Peso total na mochila:", peso_total)
+    print("Total de itens na mochila:", len(bag))
+
     print("\nItens na mochila:")
     imprimirLista(bag)
