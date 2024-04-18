@@ -54,7 +54,6 @@ def knapSack(W, lista, n, bag):
 
 # Main
 if __name__ == '__main__':
-    # Algoritmo modificado
     # Gerar valores e pesos aleatórios para n itens
     if len(sys.argv) > 1:
         n = int(sys.argv[1])
@@ -62,7 +61,7 @@ if __name__ == '__main__':
     else:
         n = 10
         W = 100
-        
+
         print("\nValores padrão: n = 5, W = 50" \
             "\nSem argumentos, o programa utilizará os valores padrão." \
             "\nUtilize 'python3 Knapsack Problem.py <n> <W>' para definir a quantidade de itens e a capacidade da mochila."
