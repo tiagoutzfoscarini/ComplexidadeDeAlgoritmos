@@ -8,7 +8,7 @@ import random
 def gerarLista(n):
     lista = [dict() for x in range(n)]
     for i in range(n):
-        lista[i] = {'id': i, 'valor': random.randint(1, 100), 'peso': random.randint(1, 30)}
+        lista[i] = {'id': i, 'valor': random.randint(5, 50), 'peso': random.randint(10, 30)}
     return lista
 
 
