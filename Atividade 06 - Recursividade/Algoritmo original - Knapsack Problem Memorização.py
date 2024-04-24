@@ -2,7 +2,6 @@
 # 0 / 1 Knapsack in Python in simple
 # we can say recursion + memoization = DP
 
-
 def knapsack(wt, val, W, n):
     # base conditions
     if n == 0 or W == 0:
