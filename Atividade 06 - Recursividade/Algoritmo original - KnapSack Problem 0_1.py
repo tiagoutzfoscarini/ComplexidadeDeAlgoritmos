@@ -9,7 +9,6 @@
 
 
 def knapSack(W, wt, val, n):
-
     # Base Case
     if n == 0 or W == 0:
         return 0
@@ -39,6 +38,6 @@ if __name__ == '__main__':
     weight = [10, 20, 30]
     W = 50
     n = len(profit)
-    print (knapSack(W, weight, profit, n))
+    print(knapSack(W, weight, profit, n))
 
 # This code is contributed by Nikhil Kumar Singh
