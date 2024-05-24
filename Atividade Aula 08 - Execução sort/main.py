@@ -2,8 +2,6 @@
 import time
 import Algoritmos
 import Auxiliar as aux
-# from concurrent.futures import ProcessPoolExecutor
-# from multiprocessing import Pool
 
 
 def main(runAlgorithm, executionParams):
@@ -119,7 +117,7 @@ def main(runAlgorithm, executionParams):
                 count += 1
 
                 start_time = time.time_ns()
-                listaOrdenada = Algoritmos.radixSortWithBubbleSort(listaDesordenada[:]) # [:] para passar uma cópia da lista
+                listaOrdenada = Algoritmos.radixSortWithInsertionSort(listaDesordenada[:]) # [:] para passar uma cópia da lista
                 elapsed_time = time.time_ns() - start_time
                 executionTimeSum += elapsed_time
 
@@ -141,7 +139,7 @@ def main(runAlgorithm, executionParams):
                 count += 1
 
                 start_time = time.time_ns()
-                listaOrdenada = Algoritmos.bucketSortWithBubbleSort(listaDesordenada[:]) # [:] para passar uma cópia da lista
+                listaOrdenada = Algoritmos.bucketSortWithInsertionSort(listaDesordenada[:]) # [:] para passar uma cópia da lista
                 elapsed_time = time.time_ns() - start_time
                 executionTimeSum += elapsed_time
 
@@ -177,30 +175,10 @@ if __name__ == "__main__":
 
     executionParams = {
         'n_min': 10,
-        'n_max': 1000,
+        'n_max': 12,
         'repeat': 20,
-        'exportarListaOrdenada': 5000 # Exportar lista ordenada a cada n itens, 0 para desativar
+        'exportarListaOrdenada': 1 # Exportar lista ordenada a cada n itens, 0 para desativar
     }
 
     main(runAlgorithm, executionParams)
 
-
-    # # Usar ProcessPoolExecutor para paralelizar a execução
-    # # Inicializar pool de processos
-    # workerPool = ProcessPoolExecutor(max_workers=12)
-    # # Executar main
-    # future = workerPool.submit(main, runAlgorithm, executionParams)
-    # result = future.result() # blocks
-    # workerPool.shutdown(wait=True)
-
-
-    # # Usar Pool para paralelizar a execução
-    # # Inicializar pool de processos
-    # workerPool = Pool()
-
-    # # Executar main
-    # result = workerPool.apply(main, (runAlgorithm, executionParams))
-
-    # workerPool.close()
-
-    

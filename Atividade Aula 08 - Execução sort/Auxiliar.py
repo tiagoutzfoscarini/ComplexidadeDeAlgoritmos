@@ -9,7 +9,7 @@ def gerarLista(n):
     lista = [-1 for x in range(n)]
 
     for i in range(n):
-        lista[i] = random.randint(0, 50000)
+        lista[i] = random.randint(0, 9999)
     return lista
 
 

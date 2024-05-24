@@ -89,17 +89,32 @@ def countingSort(lista):
     return lista
 
 
+## Insertion Sort
+def insertionSort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+
+        arr[j + 1] = key
+        
+    return arr
+
+
 ## Bubble Sort (auxiliar para Radix Sort e Bucket Sort)
-def bubbleSort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+# def bubbleSort(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         for j in range(0, n - i - 1):
+#             if arr[j] > arr[j + 1]:
+#                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 
 ## Radix Sort
-def radixSortWithBubbleSort(arr):
+def radixSortWithInsertionSort(arr):
     max_val = max(arr)
     exp = 1
     
@@ -111,7 +126,7 @@ def radixSortWithBubbleSort(arr):
             radixArray[radixIndex].append(num)
         
         for bucket in radixArray:
-            bubbleSort(bucket)
+            insertionSort(bucket)
         
         i = 0
         for bucket in radixArray:
@@ -125,7 +140,7 @@ def radixSortWithBubbleSort(arr):
 
 
 ## Bucket Sort
-def bucketSortWithBubbleSort(arr):
+def bucketSortWithInsertionSort(arr):
     n = len(arr)
     max_val = max(arr)
     size = max_val // n
@@ -137,7 +152,7 @@ def bucketSortWithBubbleSort(arr):
         buckets[j].append(arr[i])
 
     for i in range(n):
-        bubbleSort(buckets[i])
+        insertionSort(buckets[i])
 
     k = 0
     for i in range(n):
