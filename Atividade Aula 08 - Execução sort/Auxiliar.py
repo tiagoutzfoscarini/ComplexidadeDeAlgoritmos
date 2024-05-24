@@ -32,18 +32,13 @@ def exportarLista(lista, folderpath, filename):
     f.close()
 
 
-# transforma o tempo em milisegundos
-def current_milli_time(tempo):
-    return round(tempo * 1000)
-
-
 # Exportar tempo de execução (em milisegundos) para um csv
 def exportarTempo(algoritmo, n, tempo):
     # check path
     mkdir(os.path.dirname('./execlog/'))
 
     with open('./execlog/tempos.csv', 'a') as f:
-        # tempo = current_milli_time(tempo)
-        f.write("%s;%d;%f\n" % (algoritmo, n, tempo))
+        tempo = tempo / 1000000 # converter nanosegundos para milisegundos
+        f.write("%s;%d;%d\n" % (algoritmo, n, tempo))
 
     f.close()
