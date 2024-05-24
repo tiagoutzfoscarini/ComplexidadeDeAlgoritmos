@@ -1,21 +1,20 @@
 ###
-import random
 import time
 import Algoritmos
 import Auxiliar as aux
 
 
-def gerarLista(n):
-    # int list
-    lista = [0 for x in range(n)]
-
-    for i in range(n):
-        lista[i] = random.randint(0, 50000)
-    return lista
-
-
 # main
 if __name__ == "__main__":
+    # Opcionais
+    runQuickSort = False
+    runMergeSort = False
+    runHeapSort = False
+    runCountingSort = False
+    runRadixSort = False
+    runBucketSort = True
+
+    exportarListaOrdenada = 10000
 
     # Parâmetros
     global repeat, n_min, n_max
@@ -33,7 +32,7 @@ if __name__ == "__main__":
         print("n = ", n)
 
         # Gerar lista de items com valores e pesos aleatórios e ordenar por valor
-        listaDesordenada = gerarLista(n)
+        listaDesordenada = aux.gerarLista(n)
 
         # Exportar lista inicial para um txt
         aux.exportarLista(listaDesordenada, './execlog/desordenadas/', 'n_' + str(n) + '.txt')
@@ -41,75 +40,93 @@ if __name__ == "__main__":
         ## Ordenar lista com cada algoritmo
 
         ## Quick Sort
-        start_time = time.time()
-        listaOrdenada = Algoritmos.quickSort(listaDesordenada)
-        elapsed_time = time.time() - start_time
+        if (runQuickSort == True):
+            start_time = time.time()
+            listaOrdenada = Algoritmos.quickSort(listaDesordenada)
+            elapsed_time = time.time() - start_time
 
-        # Save execution time to a csv file
-        aux.exportarTempo('quickSort', n, elapsed_time)
+            # Save execution time to a csv file
+            aux.exportarTempo('quickSort', n, elapsed_time)
 
-        # Exportar lista ordenada para um txt
-        # aux.exportarLista(listaOrdenada, './execlog/ordenadas/quickSort/', 'n_' + str(n) + '.txt')
-        listaOrdenada.clear()
+            # Exportar lista ordenada para um txt
+            if (n % exportarListaOrdenada == 0):
+                aux.exportarLista(listaOrdenada, './execlog/ordenadas/quickSort/', 'n_' + str(n) + '.txt')
+
+            listaOrdenada.clear()
 
         ## Merge Sort
-        start_time = time.time()
-        listaOrdenada = Algoritmos.mergeSort(listaDesordenada)
-        elapsed_time = time.time() - start_time
+        if (runMergeSort == True):
+            start_time = time.time()
+            listaOrdenada = Algoritmos.mergeSort(listaDesordenada)
+            elapsed_time = time.time() - start_time
 
-        # Save execution time to a csv file
-        aux.exportarTempo('quickSort', n, elapsed_time)
+            # Save execution time to a csv file
+            aux.exportarTempo('mergeSort', n, elapsed_time)
 
-        # Exportar lista ordenada para um txt
-        # aux.exportarLista(listaOrdenada, './execlog/ordenadas/mergeSort/', 'n_' + str(n) + '.txt')
-        listaOrdenada.clear()
+            # Exportar lista ordenada para um txt
+            if (n % exportarListaOrdenada == 0):
+                aux.exportarLista(listaOrdenada, './execlog/ordenadas/mergeSort/', 'n_' + str(n) + '.txt')
+
+            listaOrdenada.clear()
 
         ## Heap Sort
-        start_time = time.time()
-        listaOrdenada = Algoritmos.heapSort(listaDesordenada)
-        elapsed_time = time.time() - start_time
+        if (runHeapSort == True):
+            start_time = time.time()
+            listaOrdenada = Algoritmos.heapSort(listaDesordenada)
+            elapsed_time = time.time() - start_time
 
-        # Save execution time to a csv file
-        aux.exportarTempo('quickSort', n, elapsed_time)
+            # Save execution time to a csv file
+            aux.exportarTempo('heapSort', n, elapsed_time)
 
-        # Exportar lista ordenada para um txt
-        # aux.exportarLista(listaOrdenada, './execlog/ordenadas/heapSort/', 'n_' + str(n) + '.txt')
-        listaOrdenada.clear()
+            # Exportar lista ordenada para um txt
+            if (n % exportarListaOrdenada == 0):
+                aux.exportarLista(listaOrdenada, './execlog/ordenadas/heapSort/', 'n_' + str(n) + '.txt')
+            
+            listaOrdenada.clear()
 
         ## Counting Sort
-        start_time = time.time()
-        listaOrdenada = Algoritmos.countingSort(listaDesordenada)
-        elapsed_time = time.time() - start_time
+        if (runCountingSort == True):
+            start_time = time.time()
+            listaOrdenada = Algoritmos.countingSort(listaDesordenada)
+            elapsed_time = time.time() - start_time
 
-        # Save execution time to a csv file
-        aux.exportarTempo('quickSort', n, elapsed_time)
+            # Save execution time to a csv file
+            aux.exportarTempo('countingSort', n, elapsed_time)
 
-        # Exportar lista ordenada para um txt
-        aux.exportarLista(listaOrdenada, './execlog/ordenadas/countingSort/', 'n_' + str(n) + '.txt')
-        listaOrdenada.clear()
+            # Exportar lista ordenada para um txt
+            if (n % exportarListaOrdenada == 0):
+                aux.exportarLista(listaOrdenada, './execlog/ordenadas/countingSort/', 'n_' + str(n) + '.txt')
 
-        # ## Radix Sort
-        # start_time = time.time()
-        # listaOrdenada = Algoritmos.radixSort(listaDesordenada)
-        # elapsed_time = time.time() - start_time
+            listaOrdenada.clear()
 
-        # # Save execution time to a csv file
-        # aux.exportarTempo('quickSort', n, elapsed_time)
+        ## Radix Sort
+        if (runRadixSort == True):
+            start_time = time.time()
+            listaOrdenada = Algoritmos.radixSortWithBubbleSort(listaDesordenada)
+            elapsed_time = time.time() - start_time
 
-        # # Exportar lista ordenada para um txt
-        # aux.exportarLista(listaOrdenada, './execlog/ordenadas/radixSort/', 'n_' + str(n) + '.txt')
-        # listaOrdenada.clear()
+            # Save execution time to a csv file
+            aux.exportarTempo('radixSort', n, elapsed_time)
 
-        # ## Bucket Sort
-        # start_time = time.time()
-        # listaOrdenada = Algoritmos.bucketSort(listaDesordenada)
-        # elapsed_time = time.time() - start_time
+            # Exportar lista ordenada para um txt
+            if (n % exportarListaOrdenada == 0):
+                aux.exportarLista(listaOrdenada, './execlog/ordenadas/radixSort/', 'n_' + str(n) + '.txt')
 
-        # # Save execution time to a csv file
-        # aux.exportarTempo('quickSort', n, elapsed_time)
+            listaOrdenada.clear()
 
-        # # Exportar lista ordenada para um txt
-        # aux.exportarLista(listaOrdenada, './execlog/ordenadas/bucketSort/', 'n_' + str(n) + '.txt')
-        # listaOrdenada.clear()
+        ## Bucket Sort
+        if (runBucketSort == True):
+            start_time = time.time()
+            listaOrdenada = Algoritmos.bucketSortWithBubbleSort(listaDesordenada)
+            elapsed_time = time.time() - start_time
+
+            # Save execution time to a csv file
+            aux.exportarTempo('bucketSort', n, elapsed_time)
+
+            # Exportar lista ordenada para um txt
+            if (n % exportarListaOrdenada == 0):
+                aux.exportarLista(listaOrdenada, './execlog/ordenadas/bucketSort/', 'n_' + str(n) + '.txt')
+                
+            listaOrdenada.clear()
 
         n = n + 1
