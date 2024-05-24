@@ -14,13 +14,13 @@ if __name__ == "__main__":
     runRadixSort = True
     runBucketSort = True
 
-    exportarListaOrdenada = 10 # Exportar lista ordenada a cada n itens, 0 para desativar
+    exportarListaOrdenada = 5000 # Exportar lista ordenada a cada n itens, 0 para desativar
 
     # Parâmetros
     global repeat, n_min, n_max
 
     n_min = 10
-    n_max = 100
+    n_max = 50000
 
     repeat = 20
 
