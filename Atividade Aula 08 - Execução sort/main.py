@@ -2,7 +2,8 @@
 import time
 import Algoritmos
 import Auxiliar as aux
-from concurrent.futures import ProcessPoolExecutor
+# from concurrent.futures import ProcessPoolExecutor
+# from multiprocessing import Pool
 
 
 def main(runAlgorithm, executionParams):
@@ -181,14 +182,25 @@ if __name__ == "__main__":
         'exportarListaOrdenada': 5000 # Exportar lista ordenada a cada n itens, 0 para desativar
     }
 
+    main(runAlgorithm, executionParams)
 
-    # Inicializar pool de processos
-    workerPool = ProcessPoolExecutor(max_workers=6)
 
-    # Executar main
-    future = workerPool.submit(main, runAlgorithm, executionParams)
+    # # Usar ProcessPoolExecutor para paralelizar a execução
+    # # Inicializar pool de processos
+    # workerPool = ProcessPoolExecutor(max_workers=12)
+    # # Executar main
+    # future = workerPool.submit(main, runAlgorithm, executionParams)
+    # result = future.result() # blocks
+    # workerPool.shutdown(wait=True)
 
-    result = future.result() # blocks
 
-    workerPool.shutdown(wait=True)
+    # # Usar Pool para paralelizar a execução
+    # # Inicializar pool de processos
+    # workerPool = Pool()
+
+    # # Executar main
+    # result = workerPool.apply(main, (runAlgorithm, executionParams))
+
+    # workerPool.close()
+
     
