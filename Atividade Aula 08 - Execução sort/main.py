@@ -170,7 +170,7 @@ if __name__ == "__main__":
         'mergeSort': True,
         'heapSort': True,
         'countingSort': True,
-        'radixSort': True,
+        'radixSort': False,
         'bucketSort': True
     }
 

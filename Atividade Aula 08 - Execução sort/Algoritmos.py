@@ -89,7 +89,7 @@ def countingSort(lista):
     return lista
 
 
-## Insertion Sort
+## Insertion Sort (auxiliar para Radix Sort e Bucket Sort)
 def insertionSort(arr):
     for i in range(1, len(arr)):
         key = arr[i]
