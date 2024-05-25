@@ -10,7 +10,9 @@ def main(runAlgorithm, executionParams):
 
     # Loop principal
     while n <= executionParams['n_max']:
-        print("n = ", n)
+        print("n =", n)
+
+        aux.registrarUltimaIteracao(n)
 
         # Gerar lista de items com valores e pesos aleatórios e ordenar por valor
         listaDesordenada = aux.gerarLista(n)
@@ -175,9 +177,9 @@ if __name__ == "__main__":
 
     executionParams = {
         'n_min': 10,
-        'n_max': 12,
+        'n_max': 50000,
         'repeat': 20,
-        'exportarListaOrdenada': 1 # Exportar lista ordenada a cada n itens, 0 para desativar
+        'exportarListaOrdenada': 5000 # Exportar lista ordenada a cada n itens, 0 para desativar
     }
 
     main(runAlgorithm, executionParams)

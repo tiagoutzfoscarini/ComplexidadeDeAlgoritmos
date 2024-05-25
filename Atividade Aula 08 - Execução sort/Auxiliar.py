@@ -1,7 +1,7 @@
 ###
 import os
 import random
-import time
+
 
 #
 def gerarLista(n):
@@ -40,5 +40,16 @@ def exportarTempo(algoritmo, n, tempo):
     with open('./execlog/tempos.csv', 'a') as f:
         tempo = tempo / 1000000 # converter nanosegundos para milisegundos
         f.write("%s;%d;%d\n" % (algoritmo, n, tempo))
+
+    f.close()
+
+
+# Registrar iteração em um txt
+def registrarUltimaIteracao(n):
+    # check path
+    mkdir(os.path.dirname('./execlog/'))
+
+    with open('./execlog/iteracoes.txt', 'w') as f:
+        f.write("n = %d\n" % (n))
 
     f.close()
