@@ -45,11 +45,11 @@ def exportarTempo(algoritmo, n, tempo):
 
 
 # Registrar iteração em um txt
-def registrarUltimaIteracao(n):
+def registrarUltimaIteracao(datetime, n):
     # check path
     mkdir(os.path.dirname('./execlog/'))
 
     with open('./execlog/iteracoes.txt', 'w') as f:
-        f.write("n = %d\n" % (n))
+        f.write("[%s] n = %d\n" % (datetime, n))
 
     f.close()

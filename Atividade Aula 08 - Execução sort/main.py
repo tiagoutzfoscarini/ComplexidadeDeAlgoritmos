@@ -1,5 +1,6 @@
 ###
 import time
+from datetime import datetime
 import Algoritmos
 import Auxiliar as aux
 
@@ -10,9 +11,10 @@ def main(runAlgorithm, executionParams):
 
     # Loop principal
     while n <= executionParams['n_max']:
-        print("n =", n)
+        currentDatetime = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+        print("[%s] n = %d" % (currentDatetime, n))
 
-        aux.registrarUltimaIteracao(n)
+        aux.registrarUltimaIteracao(currentDatetime, n)
 
         # Gerar lista de items com valores e pesos aleatórios e ordenar por valor
         listaDesordenada = aux.gerarLista(n)
