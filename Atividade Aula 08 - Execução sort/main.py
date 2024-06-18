@@ -170,7 +170,7 @@ if __name__ == "__main__":
         'mergeSort': True,
         'heapSort': True,
         'countingSort': True,
-        'radixSort': False,
+        'radixSort': True,
         'bucketSort': True
     }
 
@@ -179,7 +179,7 @@ if __name__ == "__main__":
 
     executionParams = {
         'n_min': 10,
-        'n_max': 50000,
+        'n_max': 20000,
         'repeat': 20,
         'exportarListaOrdenada': 5000 # Exportar lista ordenada a cada n itens, 0 para desativar
     }
