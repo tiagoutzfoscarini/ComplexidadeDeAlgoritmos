@@ -16,7 +16,7 @@ def fib(n):
 
 # MAIN
 def main(n_min, n_max, tempoMilisegundos):
-    for n in range(n_min, n_max):
+    for n in range(n_min, n_max + 1):
         # horário de início de execução
         startTime = time.time_ns()
 

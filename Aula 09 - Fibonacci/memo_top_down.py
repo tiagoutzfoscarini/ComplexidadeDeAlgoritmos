@@ -25,7 +25,7 @@ def topdown_fib(n, memo):
 
 # MAIN
 def main(n_min, n_max, tempoMilisegundos):
-    for n in range(n_min, n_max):
+    for n in range(n_min, n_max + 1):
         # inicializar memoização
         memo = [-1] * (n + 1)
 
