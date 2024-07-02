@@ -56,13 +56,13 @@ if __name__ == "__main__":
         print("Uso: python main.py <configuração 1-4> <valor troco a ser calculado>")
         print("Exemplo: python main.py 1 1.50")
         
-        print("\nExecutando com configuração padrão (1) e troco aleatório...\n")
+        print("\nExecutando com configuração aleatória e troco aleatório...\n")
 
-        # config = 1
-        # valorTroco = round(random.uniform(0.01, 10.00), 2)
-
-        config = 4
-        valorTroco = 0.20
+        config = random.randint(1, 4)
+        valorTroco = round(random.uniform(0.01, 2.00), 2)
+        # Exemplo material da aula
+        # config = 4
+        # valorTroco = 0.20
     else:
         config = int(sys.argv[1])
         valorTroco = round(float(sys.argv[2]),2)
